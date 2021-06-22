@@ -1,6 +1,7 @@
 <template>
   <div class="tune-vibes">
-    <h1>{{ msg }}</h1>
+    <div>{{ msg }}</div>
+    <button type="button" @click="playAudio()">Sound</button>
     <div class="ocean">
       <div class="wave"></div>
       <div class="wave"></div>
@@ -14,12 +15,22 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    playAudio() {
+      const snd = new Audio(require("../assets/audio/ocean-sounds.mp3"));
+      snd.play();
+    },
+  },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap");
+
 html,
 body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   height: 100%;
 }
 body {
